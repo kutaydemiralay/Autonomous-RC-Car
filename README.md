@@ -8,6 +8,10 @@ In this project, I used a 4-wheel car model to simulate an RC car navigating thr
 I then built an RC car with a Jetson Orin AGX and a ZED2i camera. The ZED2i camera has built-in localization SLAM algorithms that, with visual sensing, can accurately estimate the car's position. 
 Combined with the Jetson computer and ROS 2, the Jetson can send signals to an Adafruit controller, which then drives the servos and motor of the car using PWM to track the offline-calculated trajectory.
 
+![RC Car Build](RCCAR.png)
+
+*Figure: The physical build of the RC car is complete. I am currently addressing some software challenges.*
+
 
 ### 4-Wheel Car Model
 
