@@ -46,6 +46,8 @@ SCP iteratively solves convexified subproblems around a trust region:
 
 This formulation provides a computationally efficient and robust way to generate safe, dynamically feasible trajectories for the RC car.
 
+### Results from Sequential Convex Programming (Trajectory Planning)
 
 ![RC Car Speed vs Time](CarSpeedVSTime.png)
 
+*Figure: The speed profile of the RC car, showing acceleration to terminal velocity, cruising, and deceleration phases, along with speed dips during tight turns.*
