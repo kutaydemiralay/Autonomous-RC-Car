@@ -26,3 +26,22 @@ To make simulation efficient, we often approximate it with a kinematic bicycle m
 
 where $L$ is the wheelbase and $a$ is the acceleration.  
 This model captures the essential behavior for turning, accelerating, and decelerating realistically while remaining computationally efficient for trajectory optimization and control.
+
+### Sequential Convex Programming (Trajectory Planning)
+
+We use Sequential Convex Programming (SCP) to compute the most fuel-efficient trajectory for the RC car within a corridor.  
+SCP iteratively solves convexified subproblems around a trust region:
+
+- **Convexified subproblems:**  
+  We linearize the nonlinear vehicle dynamics around the current trajectory estimate.  
+- **Trust region:**  
+  A penalty term constrains how far the new trajectory can move from the previous one to ensure convergence.
+- **Optimization goal:**  
+  Minimize the total motor input (fuel usage) while ensuring the following constraints:
+  - Motor and steering maximum/minimum values.
+  - Vehicle speed limits ($v_{\min}$, $v_{\max}$).
+  - Start and end position constraints.
+  - Convex half-space (linear) constraints representing the corridor walls.
+  - Maximum allowable centripetal acceleration (limits turning speed).
+
+This formulation provides a computationally efficient and robust way to generate safe, dynamically feasible trajectories for the RC car.
