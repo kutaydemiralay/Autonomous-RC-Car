@@ -59,7 +59,23 @@ This formulation provides a computationally efficient and robust way to generate
 
 *Figure: The speed profile of the RC car, showing acceleration to terminal velocity, cruising, and deceleration phases, along with speed dips during tight turns.*
 
+
 ![RC Car Steering Angle vs Time](Sterr.png)
 
 *Figure: The steering angle vs. time plot shows how the car should steer in an ideal scenario. However, in the real world, actual steering inputs may differ due to disturbances and actuator limits.*
+
+
+### Building an Autonomous RC Car
+
+To build an autonomous RC car, you’ll need the following hardware components:
+
+ **Jetson computer** (e.g., Jetson Orin AGX) – for real-time processing and control.  
+ **ZED 2i camera** – for SLAM-based localization, enabling the car to understand its position in the environment.  
+ **DC-DC converter** – to safely power the Jetson from a 4S LiPo battery.  
+ **Adafruit 16-Channel 12-bit PWM/Servo Driver (I2C interface)** – generates precise PWM signals from the Jetson, which control the servos and brushless motor.  
+ **I2C interface** – a communication protocol that allows multiple devices (sensors, PWM driver, etc.) to exchange data using just two wires (SDA and SCL).  
+ **RC car hardware** – a chassis with a brushless motor, electronic speed controller (ESC), steering servo, and a battery to power the drivetrain.
+
+This hardware setup provides a powerful and flexible platform to track and execute the precomputed trajectory, combining SLAM-based localization, real-time control, and hardware interfacing through I2C.
+
 
