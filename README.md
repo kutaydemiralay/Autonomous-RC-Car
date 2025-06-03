@@ -48,6 +48,14 @@ This formulation provides a computationally efficient and robust way to generate
 
 ### Results from Sequential Convex Programming (Trajectory Planning)
 
+
+
+![RC Car Trajectory](trajj.png)
+
+*Figure: The planned trajectory of the RC car within the corridor. The corridor walls are visible, and the red dots represent trajectory nodes at each discrete time step.*
+
+
 ![RC Car Speed vs Time](CarSpeedVSTime.png)
 
 *Figure: The speed profile of the RC car, showing acceleration to terminal velocity, cruising, and deceleration phases, along with speed dips during tight turns.*
+
