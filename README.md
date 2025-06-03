@@ -45,3 +45,7 @@ SCP iteratively solves convexified subproblems around a trust region:
   - Maximum allowable centripetal acceleration (limits turning speed).
 
 This formulation provides a computationally efficient and robust way to generate safe, dynamically feasible trajectories for the RC car.
+
+
+![RC Car Speed vs Time](CarSpeedVSTime.png)
+
