@@ -1,7 +1,6 @@
 
 
-# Autonomous RC Car
-
+# Autonomous RC Car  (This is an unfinished project that is still in progress!)
 ## Introduction
 
 In this project, I used a 4-wheel car model to simulate an RC car navigating through a corridor, using Sequential Convex Programming to find the most fuel-efficient path offline.  
