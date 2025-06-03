@@ -50,7 +50,7 @@ This formulation provides a computationally efficient and robust way to generate
 
 
 
-![RC Car Trajectory](trajj.png)
+![RC Car Trajectory](Trajj.png)
 
 *Figure: The planned trajectory of the RC car within the corridor. The corridor walls are visible, and the red dots represent trajectory nodes at each discrete time step.*
 
