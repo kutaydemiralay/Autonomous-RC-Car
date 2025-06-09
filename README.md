@@ -66,7 +66,7 @@ This control algorithm will be implemented as a ROS 2 node, subscribing to local
 
 
 
-![RC Car Trajectory](Trajj.png)
+![RC Car Trajectory](TrajectoryofRCCAR.png)
 
 *Figure: The planned trajectory of the RC car within the corridor. The corridor walls are visible, and the red dots represent trajectory nodes at each discrete time step.*
 
