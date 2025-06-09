@@ -63,7 +63,7 @@ This formulation provides a computationally efficient and robust way to generate
 *Figure: The speed profile of the RC car, showing acceleration to terminal velocity, cruising, and deceleration phases, along with speed dips during tight turns.*
 
 
-![RC Car Steering Angle vs Time](Sterr.png)
+![RC Car Steering Angle vs Time](SteeringanglevsTime.png)
 
 *Figure: The steering angle vs. time plot shows how the car should steer in an ideal scenario. However, in the real world, actual steering inputs may differ due to disturbances and actuator limits.*
 
