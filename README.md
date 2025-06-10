@@ -12,24 +12,24 @@ Combined with the Jetson computer and ROS 2, the Jetson can send signals to an A
 *Figure: The physical build of the RC car is complete. I am currently addressing some software challenges.*
 
 
-## 🚗 4-Wheel Vehicle Dynamics Model
+##  4-Wheel Vehicle Dynamics Model
 
 This repository implements a **4-wheel vehicle dynamics model** for an RC car, simulating its motion and stability while navigating real-world environments. It calculates the vehicle’s position, orientation, and velocity, taking into account the forces acting on **all four wheels** and realistic front steering input.
 
 ---
 
-### 📐 Key Aspects
+### Key Aspects
 
- **Four wheels**: The model explicitly considers all four tires, providing higher accuracy than simpler models (e.g., the bicycle model).  
- **Front steering**: Only the front wheels are actively steered (via the front steering angle). The rear wheels passively roll.  
- **Longitudinal and lateral forces**: Both forward (longitudinal) and sideways (lateral) tire forces are included.  
- **Yaw moment**: Accounts for how the car rotates around its center of mass (yaw motion).  
+- **Four wheels**: The model explicitly considers all four tires, providing higher accuracy than simpler models (e.g., the bicycle model).  
+- **Front steering**: Only the front wheels are actively steered (via the front steering angle). The rear wheels passively roll.  
+- **Longitudinal and lateral forces**: Both forward (longitudinal) and sideways (lateral) tire forces are included.  
+- **Yaw moment**: Accounts for how the car rotates around its center of mass (yaw motion).  
 
 ---
 
-### 🛠 Model Inputs
+### Model Inputs
 
-- Front steering angle (\(\delta\))
+- Front steering angle (δ)
 - Vehicle speed (longitudinal velocity)
 - Tire slip angles (difference between wheel orientation and actual path)
 - Vehicle mass and inertia
@@ -37,95 +37,77 @@ This repository implements a **4-wheel vehicle dynamics model** for an RC car, s
 
 ---
 
-###  Model Outputs
+### Model Outputs
 
-- Vehicle global position and orientation (\(X, Y, \psi\))
+- Vehicle global position and orientation (X, Y, ψ)
 - Velocities (longitudinal, lateral, and yaw rate)
 - Forces at each wheel (traction and lateral forces)
 
 ---
 
-###  Formulation
+### Formulation
 
-#### Coordinate Frames & Variables
-- **Global frame**: \((X, Y)\) – fixed world coordinates.
-- **Body frame**: \((x, y)\) – attached to vehicle CoM.
-- **Yaw angle**: \(\psi\) – vehicle heading angle.
-- **Longitudinal velocity**: \(u\) – forward speed.
-- **Lateral velocity**: \(v\) – sideways speed.
-- **Yaw rate**: \(r = \dot{\psi}\).
+**Coordinate Frames & Variables**  
+- Global frame: (X, Y) – fixed world coordinates  
+- Body frame: (x, y) – attached to vehicle CoM  
+- Yaw angle: ψ – vehicle heading angle  
+- Longitudinal velocity: u – forward speed  
+- Lateral velocity: v – sideways speed  
+- Yaw rate: r = dψ/dt  
 
-#### Vehicle Equations of Motion
-1️ **Longitudinal dynamics**  
-\[
-m(\dot{u} - vr) = \sum F_{x}
-\]
+**Vehicle Equations of Motion**  
+1️⃣ Longitudinal dynamics:  
+    m (du/dt - v*r) = ΣFx  
 
-2️ **Lateral dynamics**  
-\[
-m(\dot{v} + ur) = \sum F_{y}
-\]
+2️⃣ Lateral dynamics:  
+    m (dv/dt + u*r) = ΣFy  
 
-3️ **Yaw motion**  
-\[
-I_{z} \dot{r} = a(F_{y_{fL}} + F_{y_{fR}}) - b(F_{y_{rL}} + F_{y_{rR}})
-\]
+3️⃣ Yaw motion:  
+    Iz * (dr/dt) = a*(Fy_fL + Fy_fR) - b*(Fy_rL + Fy_rR)  
 
 where:  
-- \(m\): vehicle mass  
-- \(I_{z}\): yaw moment of inertia  
-- \(a, b\): distances from CoM to front/rear axles  
-- \(F_{y_{fL}}, F_{y_{fR}}\): lateral forces at front-left/right wheels  
-- \(F_{y_{rL}}, F_{y_{rR}}\): lateral forces at rear-left/right wheels  
+- m: vehicle mass  
+- Iz: yaw moment of inertia  
+- a, b: distances from CoM to front/rear axles  
+- Fy_fL, Fy_fR: lateral forces at front-left/right wheels  
+- Fy_rL, Fy_rR: lateral forces at rear-left/right wheels  
 
-#### Tire Slip Angles
-- **Front wheels**:  
-\[
-\alpha_{f} = \delta - \arctan\left(\frac{v + a r}{u}\right)
-\]
-- **Rear wheels**:  
-\[
-\alpha_{r} = -\arctan\left(\frac{v - b r}{u}\right)
-\]
+**Tire Slip Angles**  
+- Front wheels:  
+    α_f = δ - arctan((v + a*r)/u)  
+- Rear wheels:  
+    α_r = -arctan((v - b*r)/u)  
 
-#### Lateral Tire Forces (Linear Model)
-\[
-F_{y} = -C_{\alpha} \alpha
-\]
+**Lateral Tire Forces (Linear Model)**  
+    Fy = -Cα * α  
 
 where:  
-- \(C_{\alpha}\): cornering stiffness  
-- \(\alpha\): slip angle
+- Cα: cornering stiffness  
+- α: slip angle  
 
-#### Global Position Update
-\[
-\dot{X} = u \cos{\psi} - v \sin{\psi}
-\]
-\[
-\dot{Y} = u \sin{\psi} + v \cos{\psi}
-\]
-\[
-\dot{\psi} = r
-\]
+**Global Position Update**  
+- dX/dt = u * cos(ψ) - v * sin(ψ)  
+- dY/dt = u * sin(ψ) + v * cos(ψ)  
+- dψ/dt = r
+- 
 
----
 
-###  Simulation Steps
-At each time step:
-1️ Compute slip angles.  
-2️ Calculate lateral forces from slip angles.  
-3️ Update accelerations (\(\dot{u}, \dot{v}, \dot{r}\)).  
-4️ Integrate to get new velocities and yaw rate.  
-5️ Update global position and orientation (\(X, Y, \psi\)).
+### Simulation Steps
+At each time step:  
+1️⃣ Compute slip angles  
+2️⃣ Calculate lateral forces from slip angles  
+3️⃣ Update accelerations (du/dt, dv/dt, dr/dt)  
+4️⃣ Integrate to get new velocities and yaw rate  
+5️⃣ Update global position and orientation (X, Y, ψ)  
 
----
 
-### ⚠️ Assumptions & Limits
-- Valid for **low to moderate speeds** (linear tire behavior).  
-- Does not account for load transfer, roll, or pitch.  
-- No advanced tire models (like Pacejka) in the basic version.
 
----
+### ⚠ Assumptions & Limits
+- Valid for **low to moderate speeds** (linear tire behavior)  
+- Does not account for load transfer, roll, or pitch  
+- No advanced tire models (like Pacejka) in the basic version  
+
+
 
 
 ### Sequential Convex Programming (Trajectory Planning)
