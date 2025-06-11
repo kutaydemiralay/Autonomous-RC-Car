@@ -79,7 +79,8 @@ where:
     α_r = -arctan((v - b*r)/u)  
 
 **Lateral Tire Forces (Linear Model)**  
-    Fy = -Cα * α  
+    Fyf = -Cα * α_f  
+    Fyr = -Cα * α_r  
 
 where:  
 - Cα: cornering stiffness  
@@ -152,7 +153,7 @@ At each time step:
 ###  Assumptions & Limits
 - Valid for **low to moderate speeds** (linear tire behavior)   
 - No advanced tire models (like Pacejka) in the basic version  
-
+-No load transfers are assumed for simplicity
 
 
 
