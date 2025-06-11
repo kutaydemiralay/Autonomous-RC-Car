@@ -124,7 +124,7 @@ F_zfR = F_zf / 2 + (b / L) * ΔF_z_roll
 F_zrL = F_zr / 2 - (a / L) * ΔF_z_roll
 F_zrR = F_zr / 2 + (a / L) * ΔF_z_roll
 
-⚡ Dynamic Load Transfer (Longitudinal)
+ Dynamic Load Transfer (Longitudinal)
 ΔF_z_pitch = (m * h_cg * a_x) / L
 
 where a_x is longitudinal acceleration.
