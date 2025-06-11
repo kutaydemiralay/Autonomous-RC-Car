@@ -89,7 +89,7 @@ where:
 - dX/dt = u * cos(ψ) - v * sin(ψ)  
 - dY/dt = u * sin(ψ) + v * cos(ψ)  
 - dψ/dt = r
-- 
+  
 
 
 ###  Load Transfer in the Vehicle
@@ -150,8 +150,7 @@ At each time step:
 
 
 ###  Assumptions & Limits
-- Valid for **low to moderate speeds** (linear tire behavior)  
-- Does not account for load transfer, roll, or pitch  
+- Valid for **low to moderate speeds** (linear tire behavior)   
 - No advanced tire models (like Pacejka) in the basic version  
 
 
