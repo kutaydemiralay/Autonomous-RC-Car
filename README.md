@@ -209,6 +209,16 @@ This control algorithm will be implemented as a ROS 2 node, subscribing to local
 *Figure: The steering angle vs. time plot shows how the car should steer in an ideal scenario. However, in the real world, actual steering inputs may differ due to disturbances and actuator limits.*
 
 
+
+### Simulink 4 Wheel Car Model
+
+ROS 2 can work seamlessly with Simulink, treating Simulink as nodes. To explore this capability, I implemented a Simulink model of the 4-wheel car dynamics, which also serves as an additional verification tool for the existing Python code.
+
+![Simulink_Diagram_4-wheel](Simulink_Diagram_4-wheel.png)
+*Figure:  Simulink diagram of the 4-wheel car model, assuming a constant forward (saturation) velocity.*
+
+![Simulink_X_Y_Psiscope](Simulink_X_Y_Psiscope.png)
+*Figure: Scope output from the Simulink diagram above. The blue line represents the x position, the yellow line represents the y position, and the red line is the heading angle (yaw, ψ). This matches well with the Python plots when the forward velocity is at saturation .*
 ### Building an Autonomous RC Car
 
 To build an autonomous RC car, you’ll need the following hardware components:
