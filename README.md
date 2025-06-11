@@ -3,9 +3,10 @@
 # Autonomous RC Car  (This is an unfinished project that is still in progress!)
 ## Introduction
 
-In this project, I used a 4-wheel car model to simulate an RC car navigating through a corridor, using Sequential Convex Programming to find the most fuel-efficient path offline.  
+In this project, A 4-wheel car model will be used to simulate an RC car navigating through a corridor. Uing Sequential Convex Programming we will find the most fuel-efficient path offline.  
 I then built an RC car with a Jetson Orin AGX and a ZED2i camera. The ZED2i camera has built-in localization SLAM algorithms that, with visual sensing, can accurately estimate the car's position. 
 Combined with the Jetson computer and ROS 2, the Jetson can send signals to an Adafruit controller, which then drives the servos and motor of the car using PWM to track the offline-calculated trajectory.
+ROS 2 will attempt to track the trajectory using its 4-wheel car model.
 
 ![RC Car Build](RCCAR.png)
 
@@ -14,7 +15,7 @@ Combined with the Jetson computer and ROS 2, the Jetson can send signals to an A
 
 ##  4-Wheel Vehicle Dynamics Model
 
-This projects implements a **4-wheel vehicle dynamics model** for an RC car, simulating its motion and stability while navigating real-world environments. It calculates the vehicle’s position, orientation, and velocity, taking into account the forces acting on **all four wheels** and realistic front steering input.
+This projects implements a **4-wheel vehicle dynamics model** for an RC car, as our physical model, simulating the cars motion and stability while navigating real-world environments. It calculates the vehicle’s position, orientation, and velocity, taking into account the forces acting on **all four wheels** and realistic front steering input.
 
 ---
 
