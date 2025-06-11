@@ -217,7 +217,7 @@ ROS 2 can work seamlessly with Simulink, treating Simulink as nodes. To explore 
 ![Simulink_Diagram_4-wheel](Simulink_Diagram_4-wheel.png)
 *Figure:  Simulink diagram of the 4-wheel car model, assuming a constant forward (saturation) velocity.*
 
-![Simulink_X_Y_Psiscope](Simulink_X_Y_Psiscope.png)
+![Simulink_X_Y_Psiscope](Simulink_X_Y_Psi_Scope.png)
 *Figure: Scope output from the Simulink diagram above. The blue line represents the x position, the yellow line represents the y position, and the red line is the heading angle (yaw, ψ). This matches well with the Python plots when the forward velocity is at saturation .*
 ### Building an Autonomous RC Car
 
