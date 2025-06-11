@@ -199,9 +199,9 @@ This control algorithm will be implemented as a ROS 2 node, subscribing to local
 *Figure: The planned trajectory of the RC car within the corridor. The corridor walls are visible, and the red dots represent trajectory nodes at each discrete time step.*
 
 
-![RC Car Speed vs Time](CarSpeedVSTime.png)
+![RC Car Speed vs Time](Velocity_vs_time.png)
 
-*Figure: The speed profile of the RC car, showing acceleration to terminal velocity, cruising, and deceleration phases, along with speed dips during tight turns.*
+*Figure: The speed profile of the RC car, showing acceleration to terminal velocity, cruising (saturation), and deceleration phases.*
 
 
 ![RC Car Steering Angle vs Time](steering_angle_vs_time.png)
