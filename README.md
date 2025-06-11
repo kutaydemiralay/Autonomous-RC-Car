@@ -92,7 +92,7 @@ where:
 - 
 
 
-### ⚙️ Load Transfer in the Vehicle
+###  Load Transfer in the Vehicle
 
 At rest (static loads):
 F_zf = (m * g * b) / L  (each front tire gets half)
@@ -107,7 +107,7 @@ Each wheel:
 F_zfL = F_zfR = F_zf / 2
 F_zrL = F_zrR = F_zr / 2
 
-⚡ Dynamic Load Transfer (Lateral)
+ Dynamic Load Transfer (Lateral)
 Due to lateral acceleration:
 a_y = dv/dt + u * r
 ΔF_z_roll = (m * h_cg * a_y * t) / L
@@ -131,7 +131,7 @@ Load shifts:
 F_zf = (m * g * b) / L - ΔF_z_pitch
 F_zr = (m * g * a) / L + ΔF_z_pitch
 
-🚀 Total Vertical Loads
+ Total Vertical Loads
 F_z_wheel = F_z_static ± ΔF_z_roll ± ΔF_z_pitch
 
 This formulation ensures accurate load calculations during cornering and acceleration for the RC car’s 4-wheel model.
@@ -203,7 +203,7 @@ This control algorithm will be implemented as a ROS 2 node, subscribing to local
 *Figure: The speed profile of the RC car, showing acceleration to terminal velocity, cruising, and deceleration phases, along with speed dips during tight turns.*
 
 
-![RC Car Steering Angle vs Time](SteeringanglevsTime.png)
+![RC Car Steering Angle vs Time](steering_angle_vs_time.png)
 
 *Figure: The steering angle vs. time plot shows how the car should steer in an ideal scenario. However, in the real world, actual steering inputs may differ due to disturbances and actuator limits.*
 
