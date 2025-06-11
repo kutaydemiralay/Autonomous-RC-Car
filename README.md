@@ -14,7 +14,7 @@ Combined with the Jetson computer and ROS 2, the Jetson can send signals to an A
 
 ##  4-Wheel Vehicle Dynamics Model
 
-This repository implements a **4-wheel vehicle dynamics model** for an RC car, simulating its motion and stability while navigating real-world environments. It calculates the vehicle’s position, orientation, and velocity, taking into account the forces acting on **all four wheels** and realistic front steering input.
+This projects implements a **4-wheel vehicle dynamics model** for an RC car, simulating its motion and stability while navigating real-world environments. It calculates the vehicle’s position, orientation, and velocity, taking into account the forces acting on **all four wheels** and realistic front steering input.
 
 ---
 
