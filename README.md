@@ -91,77 +91,50 @@ where:
 - dψ/dt = r
 - 
 
+
 ### ⚙️ Load Transfer in the Vehicle
 
 At rest (static loads):
-$$
-F_{zf} = \frac{m g b}{L} \quad (\text{each front tire gets half})
-$$
-$$
-F_{zr} = \frac{m g a}{L}
-$$
+F_zf = (m * g * b) / L  (each front tire gets half)
+F_zr = (m * g * a) / L
+
 where:
-- \( L = a + b \) (wheelbase)
-- \( a, b \): distances from CoM to front/rear axle
-- \( g \): gravity
+- L = a + b (wheelbase)
+- a, b: distances from CoM to front/rear axle
+- g: gravity
 
 Each wheel:
-$$
-F_{zfL} = F_{zfR} = \frac{F_{zf}}{2}, \quad F_{zrL} = F_{zrR} = \frac{F_{zr}}{2}
-$$
+F_zfL = F_zfR = F_zf / 2
+F_zrL = F_zrR = F_zr / 2
 
----
-
-#### ⚡ Dynamic Load Transfer (Lateral)
+⚡ Dynamic Load Transfer (Lateral)
 Due to lateral acceleration:
-$$
-a_y = \frac{dv}{dt} + u r
-$$
-$$
-\Delta F_{z_{roll}} = \frac{m h_{cg} a_y t}{L}
-$$
+a_y = dv/dt + u * r
+ΔF_z_roll = (m * h_cg * a_y * t) / L
+
 where:
-- \( h_{cg} \): height of the CoM
-- \( t \): track width
+- h_cg: height of the CoM
+- t: track width
 
 Vertical loads on each wheel:
-$$
-F_{zfL} = \frac{F_{zf}}{2} - \frac{b}{L} \Delta F_{z_{roll}}
-$$
-$$
-F_{zfR} = \frac{F_{zf}}{2} + \frac{b}{L} \Delta F_{z_{roll}}
-$$
-$$
-F_{zrL} = \frac{F_{zr}}{2} - \frac{a}{L} \Delta F_{z_{roll}}
-$$
-$$
-F_{zrR} = \frac{F_{zr}}{2} + \frac{a}{L} \Delta F_{z_{roll}}
-$$
+F_zfL = F_zf / 2 - (b / L) * ΔF_z_roll
+F_zfR = F_zf / 2 + (b / L) * ΔF_z_roll
+F_zrL = F_zr / 2 - (a / L) * ΔF_z_roll
+F_zrR = F_zr / 2 + (a / L) * ΔF_z_roll
 
----
+⚡ Dynamic Load Transfer (Longitudinal)
+ΔF_z_pitch = (m * h_cg * a_x) / L
 
-#### ⚡ Dynamic Load Transfer (Longitudinal)
-For acceleration/braking:
-$$
-\Delta F_{z_{pitch}} = \frac{m h_{cg} a_x}{L}
-$$
-where \( a_x \) is the longitudinal acceleration.
+where a_x is longitudinal acceleration.
 
 Load shifts:
-$$
-F_{zf} = \frac{m g b}{L} - \Delta F_{z_{pitch}}
-$$
-$$
-F_{zr} = \frac{m g a}{L} + \Delta F_{z_{pitch}}
-$$
+F_zf = (m * g * b) / L - ΔF_z_pitch
+F_zr = (m * g * a) / L + ΔF_z_pitch
 
----
+🚀 Total Vertical Loads
+F_z_wheel = F_z_static ± ΔF_z_roll ± ΔF_z_pitch
 
-#### 🚀 Total Vertical Loads
-Total loads:
-$$
-F_{z_{wheel}} = F_{z_{static}} \pm \Delta F_{z_{roll}} \pm \Delta F_{z_{pitch}}
-$$
+This formulation ensures accurate load calculations during cornering and acceleration for the RC car’s 4-wheel model.
 
 
 ### Simulation Steps
