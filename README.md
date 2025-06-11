@@ -139,12 +139,14 @@ This formulation ensures accurate load calculations during cornering and acceler
 
 ### Simulation Steps
 At each time step:  
-1️⃣ Compute slip angles  
-2️⃣ Calculate lateral forces from slip angles  
-3️⃣ Update accelerations (du/dt, dv/dt, dr/dt)  
-4️⃣ Integrate to get new velocities and yaw rate  
-5️⃣ Update global position and orientation (X, Y, ψ)  
 
+1️⃣ Compute slip angles for each tire.  
+2️⃣ Calculate lateral forces from slip angles.  
+3️⃣ Calculate vertical loads on each wheel (considering static load, dynamic lateral load transfer, and longitudinal load transfer).  
+4️⃣ Adjust lateral tire forces using the updated vertical loads (affecting cornering stiffness).  
+5️⃣ Update accelerations (`du/dt`, `dv/dt`, `dr/dt`).  
+6️⃣ Integrate to get new velocities and yaw rate.  
+7️⃣ Update global position and orientation (`X`, `Y`, `ψ`).
 
 
 ###  Assumptions & Limits
