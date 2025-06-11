@@ -154,7 +154,7 @@ At each time step:
 ###  Assumptions & Limits
 - Valid for **low to moderate speeds** (linear tire behavior)   
 - No advanced tire models (like Pacejka) in the basic version  
--No load transfers are assumed for simplicity
+- No load transfers are assumed for simplicity
 
 
 
