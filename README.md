@@ -91,6 +91,78 @@ where:
 - dψ/dt = r
 - 
 
+### ⚙️ Load Transfer in the Vehicle
+
+At rest (static loads):
+$$
+F_{zf} = \frac{m g b}{L} \quad (\text{each front tire gets half})
+$$
+$$
+F_{zr} = \frac{m g a}{L}
+$$
+where:
+- \( L = a + b \) (wheelbase)
+- \( a, b \): distances from CoM to front/rear axle
+- \( g \): gravity
+
+Each wheel:
+$$
+F_{zfL} = F_{zfR} = \frac{F_{zf}}{2}, \quad F_{zrL} = F_{zrR} = \frac{F_{zr}}{2}
+$$
+
+---
+
+#### ⚡ Dynamic Load Transfer (Lateral)
+Due to lateral acceleration:
+$$
+a_y = \frac{dv}{dt} + u r
+$$
+$$
+\Delta F_{z_{roll}} = \frac{m h_{cg} a_y t}{L}
+$$
+where:
+- \( h_{cg} \): height of the CoM
+- \( t \): track width
+
+Vertical loads on each wheel:
+$$
+F_{zfL} = \frac{F_{zf}}{2} - \frac{b}{L} \Delta F_{z_{roll}}
+$$
+$$
+F_{zfR} = \frac{F_{zf}}{2} + \frac{b}{L} \Delta F_{z_{roll}}
+$$
+$$
+F_{zrL} = \frac{F_{zr}}{2} - \frac{a}{L} \Delta F_{z_{roll}}
+$$
+$$
+F_{zrR} = \frac{F_{zr}}{2} + \frac{a}{L} \Delta F_{z_{roll}}
+$$
+
+---
+
+#### ⚡ Dynamic Load Transfer (Longitudinal)
+For acceleration/braking:
+$$
+\Delta F_{z_{pitch}} = \frac{m h_{cg} a_x}{L}
+$$
+where \( a_x \) is the longitudinal acceleration.
+
+Load shifts:
+$$
+F_{zf} = \frac{m g b}{L} - \Delta F_{z_{pitch}}
+$$
+$$
+F_{zr} = \frac{m g a}{L} + \Delta F_{z_{pitch}}
+$$
+
+---
+
+#### 🚀 Total Vertical Loads
+Total loads:
+$$
+F_{z_{wheel}} = F_{z_{static}} \pm \Delta F_{z_{roll}} \pm \Delta F_{z_{pitch}}
+$$
+
 
 ### Simulation Steps
 At each time step:  
