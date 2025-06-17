@@ -3,25 +3,25 @@
 # Autonomous RC Car  (This is an unfinished project that is still in progress!)
 ## Introduction
 
-In this project, A 4-wheel car model will be used to simulate an RC car navigating through a corridor. Uing Sequential Convex Programming we will find the most fuel-efficient path offline.  
+In this project, A 4-wheel/ bicycle car model will be used to simulate an RC car navigating through a corridor. Uing Sequential Convex Programming we will find the most fuel-efficient path offline.  
 I then built an RC car with a Jetson Orin AGX and a ZED2i camera. The ZED2i camera has built-in localization SLAM algorithms that, with visual sensing, can accurately estimate the car's position. 
 Combined with the Jetson computer and ROS 2, the Jetson can send signals to an Adafruit controller, which then drives the servos and motor of the car using PWM to track the offline-calculated trajectory.
-ROS 2 will attempt to track the trajectory using its 4-wheel car model.
+ROS 2 will attempt to track the trajectory using its 4-wheel/ bicycle car model.
 
 ![RC Car Build](RCCAR.png)
 
 *Figure: The physical build of the RC car is complete. I am currently addressing some software challenges.*
 
 
-##  4-Wheel Vehicle Dynamics Model
+##  Detailed Bicycle Vehicle Dynamics Model
 
-This projects implements a **4-wheel vehicle dynamics model** for an RC car, as our physical model, simulating the cars motion and stability while navigating real-world environments. It calculates the vehicle’s position, orientation, and velocity, taking into account the forces acting on **all four wheels** and realistic front steering input.
+This projects implements a Detailed Bicycle vehicle dynamics model for an RC car, as our physical model, simulating the cars motion and stability while navigating real-world environments. It calculates the vehicle’s position, orientation, and velocity, taking into account the forces acting on all four wheels and realistic front steering input.
 
 ---
 
 ### Key Aspects
 
-- **Four wheels**: The model explicitly considers all four tires, providing higher accuracy than simpler models (e.g., the bicycle model).  
+- **Four wheels**: Four wheels: While the vehicle has four tires, the model simplifies their effects by computing slip angles only for the front and rear axles—without distinguishing between left and right tires—effectively reducing it to a bicycle model.
 - **Front steering**: Only the front wheels are actively steered (via the front steering angle). The rear wheels passively roll.  
 - **Longitudinal and lateral forces**: Both forward (longitudinal) and sideways (lateral) tire forces are included.  
 - **Yaw moment**: Accounts for how the car rotates around its center of mass (yaw motion).  
@@ -210,12 +210,12 @@ This control algorithm will be implemented as a ROS 2 node, subscribing to local
 
 
 
-### Simulink 4 Wheel Car Model
+### Simulink Bicylce Car Model
 
-ROS 2 can work seamlessly with Simulink, treating Simulink as nodes. To explore this capability, I implemented a Simulink model of the 4-wheel car dynamics, which also serves as an additional verification tool for the existing Python code.
+ROS 2 can work seamlessly with Simulink, treating Simulink as nodes. To explore this capability, I implemented a Simulink model of the bicycle car dynamics, which also serves as an additional verification tool for the existing Python code.
 
 ![Simulink_Diagram_4-wheel](Simulink_Diagram_4-wheel.png)
-*Figure:  Simulink diagram of the 4-wheel car model, assuming a constant forward (saturation) velocity.*
+*Figure:  Simulink diagram of the Bicylce car model, assuming a constant forward (saturation) velocity.*
 
 ![Simulink_X_Y_Psiscope](Simulink_X_Y_Psi_Scope.png)
 *Figure: Scope output from the Simulink diagram above. The blue line represents the x position, the yellow line represents the y position, and the red line is the heading angle (yaw, ψ). This matches well with the Python plots when the forward velocity is at saturation .*
