@@ -21,7 +21,7 @@ This projects implements a Detailed Bicycle vehicle dynamics model for an RC car
 
 ### Key Aspects
 
-- **Four wheels**: Four wheels: While the vehicle has four tires, the model simplifies their effects by computing slip angles only for the front and rear axles—without distinguishing between left and right tires—effectively reducing it to a bicycle model.
+- **Four wheels**: While the vehicle has four tires, the model simplifies their effects by computing slip angles only for the front and rear axles—without distinguishing between left and right tires—effectively reducing it to a bicycle model.
 - **Front steering**: Only the front wheels are actively steered (via the front steering angle). The rear wheels passively roll.  
 - **Longitudinal and lateral forces**: Both forward (longitudinal) and sideways (lateral) tire forces are included.  
 - **Yaw moment**: Accounts for how the car rotates around its center of mass (yaw motion).  
@@ -136,7 +136,7 @@ F_zr = (m * g * a) / L + ΔF_z_pitch
  Total Vertical Loads
 F_z_wheel = F_z_static ± ΔF_z_roll ± ΔF_z_pitch
 
-This formulation ensures accurate load calculations during cornering and acceleration for the RC car’s 4-wheel model.
+This formulation ensures accurate load calculations during cornering and acceleration for the RC car’s bicycle model.
 
 
 ### Simulation Steps
@@ -144,7 +144,7 @@ At each time step:
 
 1️⃣ Compute slip angles for each tire.  
 2️⃣ Calculate lateral forces from slip angles.  
-3️⃣ Calculate vertical loads on each wheel (considering static load, dynamic lateral load transfer, and longitudinal load transfer).  
+3️⃣ Calculate vertical loads on wheels (considering static load, dynamic lateral load transfer, and longitudinal load transfer).  
 4️⃣ Adjust lateral tire forces using the updated vertical loads (affecting cornering stiffness).  
 5️⃣ Update accelerations (`du/dt`, `dv/dt`, `dr/dt`).  
 6️⃣ Integrate to get new velocities and yaw rate.  
@@ -152,7 +152,7 @@ At each time step:
 
 
 ###  Assumptions & Limits
-- Valid for **low to moderate speeds** (linear tire behavior)   
+- Valid for low to moderate speeds (linear tire behavior)   
 - No advanced tire models (like Pacejka) in the basic version  
 - No load transfers are assumed for simplicity
 
