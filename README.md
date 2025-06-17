@@ -181,8 +181,8 @@ This formulation provides a computationally efficient and robust way to generate
 
 To control the autonomous RC car along the precomputed trajectory, we plan to use either a **PID controller** or an **LQR (Linear Quadratic Regulator)**.
 
-**PID Controller** – A straightforward approach that minimizes error based on proportional, integral, and derivative gains.  
-**LQR Controller** – An optimal control approach that minimizes a quadratic cost function of state and control effort, providing a balance between tracking accuracy and control input magnitude.
+**PID Controller** – A straightforward approach that minimizes error based on proportional, integral, and derivative gains, would require design separate SISO PID Controllers for Each Input-Output Pair .  
+**LQR Controller** – An optimal control approach that minimizes a quadratic cost function of state and control effort, providing a balance between tracking accuracy and control input magnitude, would work well in MIMO case.
 
 For the LQR approach, we linearize the vehicle model around the current reference trajectory and compute time-varying feedback gains. This enables more robust tracking, especially in scenarios with high curvature turns or fast vehicle dynamics.
 
