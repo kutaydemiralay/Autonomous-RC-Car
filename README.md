@@ -80,8 +80,8 @@ where:
     α_r = -arctan((v - b*r)/u)  
 
 **Lateral Tire Forces (Linear Model)**  
-    Fyf = -Cα * α_f  
-    Fyr = -Cα * α_r  
+    Fy_fL+Fy_fR = -Cα * α_f  
+    Fy_rL+Fy_rR = -Cα * α_r  
 
 where:  
 - Cα: cornering stiffness  
