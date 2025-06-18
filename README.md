@@ -8,7 +8,7 @@ I then built an RC car with a Jetson Orin AGX and a ZED2i camera. The ZED2i came
 Combined with the Jetson computer and ROS 2, the Jetson can send signals to an Adafruit controller, which then drives the servos and motor of the car using PWM to track the offline-calculated trajectory.
 ROS 2 will attempt to track the trajectory using its 4-wheel/ bicycle car model.
 
-![RC Car Build](RCCAR.png)
+![RC Car Build](images/RCCAR.png)
 
 *Figure: The physical build of the RC car is complete. I am currently addressing some software challenges.*
 
