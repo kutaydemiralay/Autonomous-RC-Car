@@ -194,19 +194,15 @@ This control algorithm will be implemented as a ROS 2 node, subscribing to local
 
 
 
-![RC Car Trajectory](TrajectoryofRCCAR.png)
+![RC Car Trajectory](images/TrajectoryofRCCAR.png)
 
 *Figure: The planned trajectory of the RC car within the corridor. The corridor walls are visible, and the red dots represent trajectory nodes at each discrete time step.*
 
 
-![RC Car Speed vs Time](Velocity_vs_time.png)
+![RC Car Speed vs Time](images/Velocity_vs_time.png)
 
 *Figure: The speed profile of the RC car, showing acceleration to terminal velocity, cruising (saturation), and deceleration phases.*
 
-
-![RC Car Steering Angle vs Time](steering_angle_vs_time.png)
-
-*Figure: The steering angle vs. time plot shows how the car should steer in an ideal scenario. However, in the real world, actual steering inputs may differ due to disturbances and actuator limits.*
 
 
 
@@ -214,10 +210,10 @@ This control algorithm will be implemented as a ROS 2 node, subscribing to local
 
 ROS 2 can work seamlessly with Simulink, treating Simulink as nodes. To explore this capability, I implemented a Simulink model of the bicycle car dynamics, which also serves as an additional verification tool for the existing Python code.
 
-![Simulink_Diagram_4-wheel](Simulink_Diagram_4-wheel.png)
+![Simulink_Diagram_4-wheel](images/Simulink_Diagram_4-wheel.png)
 *Figure:  Simulink diagram of the Bicylce car model, assuming a constant forward (saturation) velocity.*
 
-![Simulink_X_Y_Psiscope](Simulink_X_Y_Psi_Scope.png)
+![Simulink_X_Y_Psiscope](images/Simulink_X_Y_Psi_Scope.png)
 *Figure: Scope output from the Simulink diagram above. The blue line represents the x position, the yellow line represents the y position, and the red line is the heading angle (yaw, ψ). This matches well with the Python plots when the forward velocity is at saturation .*
 ### Building an Autonomous RC Car
 
